@@ -1,7 +1,7 @@
 name: 'biapi GitHub Actions'
-defaults:
-  run:
-    working-directory: "pra-btapi"
+#defaults:
+#  run:
+#    working-directory: "pra-btapi"
 on:
   - pull_request
   - push
