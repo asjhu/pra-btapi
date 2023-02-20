@@ -1,4 +1,4 @@
-name: 'biapi GitHub Actions'
+name: 'btapi GitHub Actions'
 #defaults: #
 #  run:
 #    working-directory: "pra-btapi"
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: 'Download btapi'
+      - name: 'CI/CD Pipeline with btapi'
         env:
           BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
           BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
@@ -43,6 +43,22 @@ jobs:
           btapi do vault/account/62/check-in
           btapi do vault/account/63/check-in
           btapi do vault/account/64/check-in
-          pwd
-          ls -l app01
-          cat app01/keys.tf
+      - name: 'Terraform Init'
+        id: init
+        run: terraform init
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terraform Validate'
+        id: validate
+        run: terraform validate
+      - name: 'Terraform Plan'
+        id: plan
+        run: terraform plan
+        continue-on-error: true 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terraform Apply'
+        id: apply
+        run: terraform apply -auto-approve
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
