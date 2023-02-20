@@ -1,0 +1,34 @@
+name: 'biapi GitHub Actions'
+defaults:
+  run:
+    working-directory: "pra-btapi"
+on:
+  - pull_request
+  - push
+jobs:
+  pra:
+    name: 'PRA'
+    runs-on: ubuntu-latest
+    env:
+      BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
+      BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
+      BT_API_HOST: ${{ secrets.BT_API_HOST }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'Download btapi'
+        run: |
+          echo "$BT_CLIENT_ID"
+          echo "$BT_CLIENT_SECRET"
+          echo "$BT_API_HOST"
+          curl -o btapi.zip -L https://$BT_API_HOST/api/config/v1/cli/linux
+          unzip btapi.zip
+          mv btapi /usr/local/bin
+          rm btapi.zip
+          btapi --version
+
+
+#    env:
+#       TF_VAR_client_id: ${{ secrets.TF_VAR_client_id }} 
+#       TF_VAR_client_secret: ${{ secrets.TF_VAR_client_secret }} 
+#       TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
+#       TF_VAR_tenant_id: ${{ secrets.TF_VAR_tenant_id }} 
