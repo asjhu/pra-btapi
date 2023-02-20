@@ -23,7 +23,7 @@ jobs:
           rm btapi.zip
           btapi --version
           retrv1=$(btapi do vault/account/61/check-out | jq '.password')
-          echo "$retrv1
+          echo "$retrv1"
         env:
           BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
           BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
