@@ -1,5 +1,5 @@
 name: 'btapi GitHub Actions'
-defaults: #
+defaults:
   run:
     working-directory: "app01"
 on:
