@@ -17,11 +17,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: 'Download btapi'
         run: |
-          curl -o btapi.zip -L https://BT_API_HOST/api/config/v1/cli/linux
+          curl -o btapi.zip -L https://apra.beyondtrust.com/api/config/v1/cli/linux
           unzip btapi.zip
           mv btapi /usr/local/bin
           rm btapi.zip
           btapi --version
+          echo "$BT_CLIENT_ID"
 
 
 #    env:
