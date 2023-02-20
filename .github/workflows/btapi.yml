@@ -10,7 +10,7 @@ jobs:
     name: 'PRA'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - name: 'CI/CD Pipeline with btapi'
         env:
           BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
