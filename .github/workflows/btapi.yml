@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: 'Download btapi'
         run: |
-          curl -o btapi.zip -L https://apra.beyondtrust.com/api/config/v1/cli/linux
+          curl -o btapi.zip -L https://apra.beyondtrustcloud.com/api/config/v1/cli/linux
           unzip btapi.zip
           mv btapi /usr/local/bin
           rm btapi.zip
