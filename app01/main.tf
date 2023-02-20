@@ -7,27 +7,15 @@ terraform {
     }
   }
 }
- 
+
 provider "azurerm" {
-  subscription_id =     var.subscription_id
-  client_id       =     var.client_id
-  client_secret   =     var.client_secret
-  tenant_id       =     var.tenant_id
   features {}
+  subscription_id = var.s_id
+  client_id       = var.c_id
+  client_secret   = var.c_sec
+  tenant_id       = var.t_id
 }
 
-variable "subscription_id" {
-  default = ""
-}
-variable "client_id" {
-  default = ""
-}
-variable "client_secret" {
-  default = ""
-}
-variable "tenant_id" {
-  default = ""
-}
 resource "azurerm_resource_group" "resourcegroup" {
   name     = var.resourcename
   location = var.location
