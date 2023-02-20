@@ -9,13 +9,17 @@ jobs:
   pra:
     name: 'PRA'
     runs-on: ubuntu-latest
-    env:
-      BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
-      BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
-      BT_API_HOST: ${{ secrets.BT_API_HOST }}
+#    env:
+#      BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
+#      BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
+#      BT_API_HOST: ${{ secrets.BT_API_HOST }}
     steps:
       - uses: actions/checkout@v2
       - name: 'Download btapi'
+        env:
+          BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
+          BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
+          BT_API_HOST: ${{ secrets.BT_API_HOST }}
         run: |
           curl -o btapi.zip -L https://apra.beyondtrustcloud.com/api/config/v1/cli/linux
           unzip btapi.zip
@@ -24,10 +28,7 @@ jobs:
           btapi --version
           retrv1=$(btapi do vault/account/61/check-out | jq '.password')
           echo "$retrv1"
-        env:
-          BT_CLIENT_ID: ${{ secrets.BT_CLIENT_ID }}
-          BT_CLIENT_SECRET: ${{ secrets.BT_CLIENT_SECRET }}
-          BT_API_HOST: ${{ secrets.BT_API_HOST }}
+        
 
 
 #    env:
