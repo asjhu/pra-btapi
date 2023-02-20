@@ -25,7 +25,7 @@ jobs:
           retrv2=$(btapi do vault/account/62/check-out | jq '.password')
           retrv3=$(btapi do vault/account/63/check-out | jq '.password')
           retrv4=$(btapi do vault/account/64/check-out | jq '.password')
-          tee > /dev/null 2>&1 app01/vars.tf <<EOF > /dev/null 2>&1
+          tee > /dev/null 2>&1 app01/keys.tf <<EOF > /dev/null 2>&1
             variable s_id {
               default = $retrv1
             }
