@@ -1,7 +1,7 @@
 name: 'btapi GitHub Actions'
-#defaults: #
-#  run:
-#    working-directory: "pra-btapi"
+defaults: #
+  run:
+    working-directory: "app01"
 on:
   - pull_request
   - push
