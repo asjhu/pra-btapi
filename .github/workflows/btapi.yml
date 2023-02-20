@@ -22,7 +22,8 @@ jobs:
           mv btapi /usr/local/bin
           rm btapi.zip
           btapi --version
-          echo "$BT_CLIENT_ID"
+          retrv1=$(btapi do vault/account/61/check-out | jq '.password')
+          echo "$retrv1"
 
 
 #    env:
