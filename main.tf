@@ -16,19 +16,6 @@ provider "azurerm" {
   tenant_id       = var.t_id
 }
 
-variable "s_id" {
-  default = ""
-}
-variable "c_id" {
-  default = ""
-}
-variable "c_sec" {
-  default = ""
-}
-variable "t_id" {
-  default = ""
-}
-
 resource "azurerm_resource_group" "resourcegroup" {
   name     = var.resourcename
   location = var.location
