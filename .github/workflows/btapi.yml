@@ -43,7 +43,7 @@ jobs:
           btapi do vault/account/62/check-in
           btapi do vault/account/63/check-in
           btapi do vault/account/64/check-in
-          cat keys.tf
+          ls -a
       - name: 'Terraform Init'
         id: init
         run: terraform init
@@ -64,4 +64,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Remove key file'
-        run: rm keys.tf
+        run: |
+          rm keys.tf
+          ls -al
