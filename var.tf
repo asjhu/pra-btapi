@@ -1,5 +1,5 @@
 variable "resourcename" {
-  default = "PRA-btapi"
+  default = "GitHubActions"
 }
 variable "location" {
   default = "West US"
