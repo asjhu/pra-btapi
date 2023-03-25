@@ -52,12 +52,12 @@ jobs:
       - name: 'Terraform Validate'
         id: validate
         run: terraform validate
-      - name: 'Terraform Plan'
-        id: plan
-        run: terraform plan
-        continue-on-error: true 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: 'Terraform Plan'
+      #   id: plan
+      #   run: terraform plan
+      #   continue-on-error: true 
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: 'Terraform Apply'
 #        id: apply
 #        run: terraform apply -auto-approve
@@ -72,4 +72,3 @@ jobs:
         run: |
           rm keys.tf
           ls -al
-
