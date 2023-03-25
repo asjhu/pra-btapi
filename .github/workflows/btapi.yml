@@ -58,9 +58,14 @@ jobs:
         continue-on-error: true 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 'Terraform Apply'
-        id: apply
-        run: terraform apply -auto-approve
+#      - name: 'Terraform Apply'
+#        id: apply
+#        run: terraform apply -auto-approve
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Terraform Destroy'
+        id: destroy
+        run: terraform destroy -auto-approve
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Remove key file'
