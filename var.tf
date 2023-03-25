@@ -1,5 +1,5 @@
 variable "resourcename" {
-  default = "GitHubActions"
+  default = "PRA-GitHubActions"
 }
 variable "location" {
   default = "West US"
